@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="codepage" id="jsid" href="java:class">
+  <link rel="stylesheet" href="css/alarms.css">
+  <script src="js/alarms.js" defer></script>
+  <title>Alarm List</title>
+</head>
+
+<body>
+  <header>
+    <p>알 람</p>
+  </header>
+
+  <section>
+    <table id=list>
+      <tr>
+        <td>
+          01: 2020-03-08 09:00 한번 melody.mp3<br>
+          1분 동안, 10분 간격, 10회 반복, 볼륨:9, 진동:X<br>
+          알람 메세지 입니다.
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <footer>
+    <button onclick="location='alarm.html';">추가</button>
+    <button onclick="location='alarm.html';">수정</button>
+    <button onclick="location='alarm.html';">삭제</button>
+    <button onclick="history.back();">시계</button>
+  </footer>
+</body>
+</html>

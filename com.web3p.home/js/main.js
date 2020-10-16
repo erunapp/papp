@@ -1,19 +1,19 @@
 var items = [
 	    {
 	        id: "Clock 0",
-	        url: "papp://183.97.19.177/main.html?app=com.web3p.clock&run=0",
+	        url: "papp://erunapp.github.io/?app=com.web3p.clock&run=0",
 	    },
 	    {
 	        id: "Clock 1",
-	        url: "papp://183.97.19.177/main.html?app=com.web3p.clock&run=1",
+	        url: "papp://erunapp.github.io/?app=com.web3p.clock&run=1",
 	    },
 	    {
 	        id: "Source 0",
-	        url: "papp://183.97.19.177/main.html?app=com.web3p.source&run=0",
+	        url: "papp://erunapp.github.io/?app=com.web3p.source&run=0",
 	    },
 	    {
 	        id: "Source 1",
-	        url: "papp://183.97.19.177/main.html?app=com.web3p.source&run=1",
+	        url: "papp://erunapp.github.io/?app=com.web3p.source&run=1",
 	    },
 	    {
 	        id: "Alarm Clock",

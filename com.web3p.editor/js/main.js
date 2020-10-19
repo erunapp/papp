@@ -23,6 +23,6 @@ document.getElementById("container")
 	.addEventListener('click', event => {
 		if (event.target.tagName == "BUTTON") {
 			let val = event.target.value;
-			console.log(val);
+			location.href=`edit.html?file=${val}`;
 		}
 	});

@@ -1,7 +1,8 @@
 ;
 var container = document.getElementById("container");
+let state = wdp.loadState();
 
-if (container.childElementCount == 0) {
+if (state == "") {
 	void (function (data) {
 		let folder = document.getElementById('folder').innerHTML,
 			file = document.getElementById('file').innerHTML;
@@ -24,7 +25,9 @@ if (container.childElementCount == 0) {
 	container.addEventListener('click', event => {
 		if (event.target.tagName == "BUTTON") {
 			let val = event.target.value;
+			wdp.saveState(container.innerHTML);
 			location.href=`edit.html?file=${val}`;
 		}
 	});
 }
+else container.innerHTML = state;

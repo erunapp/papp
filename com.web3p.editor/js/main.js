@@ -17,5 +17,12 @@ void (function (data) {
 		file = document.getElementById('file').innerHTML;
 	
 	document.getElementById('container').innerHTML = tree(data);
-} (JSON.parse(wdp.getSources())))
-;
+} (JSON.parse(wdp.getFiles())));
+
+document.getElementById("container")
+	.addEventListener('click', event => {
+		if (event.target.tagName == "BUTTON") {
+			let val = event.target.value;
+			console.log(val);
+		}
+	});

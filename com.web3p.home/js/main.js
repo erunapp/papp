@@ -8,12 +8,12 @@ var items = [
 	        url: "papp://erunapp.github.io/?app=com.web3p.clock&run=1",
 	    },
 	    {
-	        id: "Source 0",
-	        url: "papp://erunapp.github.io/?app=com.web3p.source&run=0",
+	        id: "Alarm Clock",
+	        url: "clock.html",
 	    },
 	    {
-	        id: "Source 1",
-	        url: "papp://erunapp.github.io/?app=com.web3p.source&run=1",
+	        id: "Alarm Clock",
+	        url: "clock.html",
 	    },
 	    {
 	        id: "Alarm Clock",

@@ -8,7 +8,6 @@ CodeMirror(document.getElementById('code'), {
     lineNumbers: true,
     tabSize: 4,
     value: wdp.getFile(file),
-    mode: 'htmlmixed',
     theme: 'cobalt'
   });
   

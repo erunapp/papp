@@ -14,5 +14,5 @@ var items = wdp.getList();
 }());
 
 function fire(no) {
-    location.href = "papp" + items[no].url.substr(4);
+    location.href = "papp://" + items[no].url + "?app=" + items[no].app;
 }

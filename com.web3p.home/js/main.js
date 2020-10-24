@@ -1,41 +1,4 @@
-var items = [
-	    {
-	        id: "Clock 0",
-	        url: "papp://erunapp.github.io/?app=com.web3p.clock&run=0",
-	    },
-	    {
-	        id: "Clock 1",
-	        url: "papp://erunapp.github.io/?app=com.web3p.clock&run=1",
-	    },
-	    {
-	        id: "Alarm Clock",
-	        url: "clock.html",
-	    },
-	    {
-	        id: "Alarm Clock",
-	        url: "clock.html",
-	    },
-	    {
-	        id: "Alarm Clock",
-	        url: "clock.html",
-	    },
-	    {
-	        id: "Alarm Clock",
-	        url: "clock.html",
-	    },
-	    {
-	        id: "Alarm Clock",
-	        url: "clock.html",
-	    },
-	    {
-	        id: "Alarm Clock",
-	        url: "clock.html",
-	    },
-	    {
-	        id: "Alarm Clock",
-	        url: "clock.html",
-	    },
-	];
+var items = wdp.getList();
 
 (function () {
     let list = document.getElementById("container"),
@@ -43,12 +6,13 @@ var items = [
         html = [];
 
     for (let i = 0; i < items.length; i++) {
-		let item = temp.replace("$no$", i).replace("$id$", items[i].id);
+		if (itme[i].app === undefined) continue;
+		let item = temp.replace("{no}", i).replace("{id}", items[i].id);
         html.push(item);
     };
     list.innerHTML = html.join("");
 }());
 
-function fire(item) {
-    location.href = items[item].url;
+function fire(no) {
+    location.href = "papp" + items[no].url.substr(4);
 }

@@ -9,9 +9,9 @@ function tree(node) {
 
 	for (key in node) {
 		if (typeof node[key] === 'number') {
-			html.push(file.replace('${name}', key).replace('${path}', node[key]));
+			html.push(file.replace('{name}', key).replace('{path}', node[key]));
 		} else {
-			html.push(folder.replace('${name}', key).replace('${children}', tree(node[key])));
+			html.push(folder.replace('{name}', key).replace('{children}', tree(node[key])));
 		}
 	}
 	return html.join('');

@@ -1,4 +1,4 @@
-var items = wdp.getList();
+var items = eval(wdp.getList());
 
 (function () {
     let list = document.getElementById("container"),

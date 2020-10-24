@@ -6,7 +6,7 @@ var items = wdp.getList();
         html = [];
 
     for (let i = 0; i < items.length; i++) {
-		if (itme[i].app === undefined) continue;
+		if (itmes[i].app === undefined) continue;
 		let item = temp.replace("{no}", i).replace("{id}", items[i].id);
         html.push(item);
     };

@@ -47,7 +47,7 @@ footer button:hover {
     display: grid;
     grid-gap: 4px;
     grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-    grid-template-rows: repeat(5, 90px);
+    grid-template-rows: repeat(6, 90px);
     background-color: #2196F3;
     padding: 5px;
 }

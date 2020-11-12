@@ -28,3 +28,5 @@ function setMode(mode) {
     }
     state = mode;
 }
+
+setMode(state);

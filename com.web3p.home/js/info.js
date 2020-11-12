@@ -10,12 +10,14 @@ var data = {
 	};
 
 function load() {
+	data = wdp.load(location.search.substr(5));
     for (let id in data) flds[id] = data[id];
 };
 
 function save() {	
 	for (let id in data) data[id] = flds[id];
-	wcp.save(JSON.stringify(data));
+	wdp.save(JSON.stringify(data));
+	history.back();
 };
 
 var form = window.eval(wdp.initForm());

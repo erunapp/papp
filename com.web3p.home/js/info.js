@@ -10,7 +10,7 @@ var data = {
 	};
 
 function load() {
-	data = wdp.load(location.search.substr(5));
+	data = JSON.parse(wdp.load(location.search.substr(5)));
     for (let id in data) flds[id] = data[id];
 };
 

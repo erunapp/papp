@@ -1,4 +1,5 @@
 var items = eval(wdp.getList());
+var state = true;
 
 (function () {
     let list = document.getElementById("container"),
@@ -14,5 +15,16 @@ var items = eval(wdp.getList());
 }());
 
 function fire(no) {
-    location.href = "papp://" + items[no].url + "?app=" + items[no].app;
+    location.href = (state ? "papp://" + items[no].url : "info.html") + "?app=" + items[no].app;
+}
+
+function setMode(mode) {
+    if (mode) {
+        document.getElementById("editings").style.display = "none";
+        document.getElementById("runnings").style.display = "grid";
+    } else {
+        document.getElementById("runnings").style.display = "none";
+        document.getElementById("editings").style.display = "grid";
+    }
+    state = mode;
 }

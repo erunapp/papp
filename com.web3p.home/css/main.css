@@ -62,7 +62,7 @@ footer button:hover {
 
 .item > img {
     display: block;
-    margin: auto;
+    margin: 3px auto;
 }
 
 .item > div {

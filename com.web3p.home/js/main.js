@@ -8,7 +8,7 @@ var state = true;
 
     for (let i = 0; i < items.length; i++) {
 		if (items[i].app === undefined) continue;
-		let item = temp.replace("{no}", i).replace("{id}", items[i].id);
+		let item = temp.replace("{no}", i).replace("{id}", items[i].id).replace("{uri}", items[i].uri);
         html.push(item);
     };
     list.innerHTML = html.join("");

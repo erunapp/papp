@@ -35,7 +35,10 @@
     <div class="item">Item 6</div>
   </div>
   <template id="item_template">
-  	<div class="item" onclick="fire({no})">{id}</div>
+    <div class="item" onclick="fire({no})">
+      <img src='{uri}' alt='' width="24dp" height="24dp" />
+      {id}
+    </div>
   </template>
 
   <footer>

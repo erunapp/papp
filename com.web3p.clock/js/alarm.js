@@ -17,15 +17,13 @@ var data = {
 	};
 
 function load() {
-    for (let id in objs) flds[id] = data[id];
+    for (let id in data) flds[id] = data[id];
 };
 
 function save() {	
-    for (let id in objs) data[id] = flds[id];
+    for (let id in data) data[id] = flds[id];
 };
 
-var form = window.eval(wdp.initForm());
-var objs = form.objs;
-var flds = form.flds;
+var flds = window.eval(wdp.initForm());
 
 load();

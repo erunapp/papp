@@ -12,6 +12,7 @@ var data = {
 function load() {
 	data = JSON.parse(wdp.load(location.search.substr(5)));
     for (let id in data) flds[id] = data[id];
+	flds['iconimg'] = data['icon'];
 };
 
 function save() {	
@@ -20,7 +21,6 @@ function save() {
 	history.back();
 };
 
-var form = window.eval(wdp.initForm());
-var flds = form.flds;
+var flds = window.eval(wdp.initForm());
 
 load();

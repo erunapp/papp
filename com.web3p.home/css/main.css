@@ -66,6 +66,7 @@ footer button:hover {
 }
 
 .item > div {
+    margin: auto;
     text-align: center;
     font-size: 1em;
     font-family: sans-serif;

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+  <title>eRunApp ez</title>
+</head>
+
+<body>
+  <header>
+    <div id="runnings" style="display: grid;">
+      <img src="img/grid.png" alt="grid" width="24dp" height="24dp">
+      <img src="img/list.png" alt="list" width="24dp" height="24dp">
+      <img src="img/card.png" alt="card" width="24dp" height="24dp">
+      <span> </span>
+      <img src="img/play.png" alt="play" width="24dp" height="24dp" onclick="setMode(false);">
+    </div>
+    <div id="editings" style="display: none;">
+      <img src="img/host.png" alt="grid" width="24dp" height="24dp">
+      <img src="img/cart.png" alt="list" width="24dp" height="24dp">
+      <img src="img/home.png" alt="card" width="24dp" height="24dp">
+      <span> </span>
+      <img src="img/edit.png" alt="play" width="24dp" height="24dp" onclick="setMode(true);">
+    </div>
+  </header>
+
+  <div id="container">
+    <div class="item" onclick="fire(2)">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAD3UlEQVRIibWV21MTZxjG84+0oP4bbQgHmQBykEjDMeBie1HtydpCxbb25EyFJSHJnnezh+xmD8FCYkhDDAwoCrQdxvHCthm9Y/QP8DADM/L0AhuNRcSq7923M9/7e+d5v30el2uX4vzWAaFDHxE61ALXrt1l2tRNulXZpJrlO1STVIg2Sacj9cK+3XrsWLFuY7/kNyaFzviW8J4OviMOzqeBPayCaVNAt8igDsUQbZIQbhC3wl7RCXqZyj01V3qtgNRjPJS6DIh+HWy7CqZVAd0qg2lTwB5WwbVrpe+RRglhr4jQQeFB6KDQu2tzOWANy30mYj0JcO0aIo0SIo0SqEMx0C1PAXwa+I44RL8O0a+DbpExUS8gVMcjWMOf2nnyfiugBCzIfSbo5u0LYa/4QoDUZWwP5NO2AbUcgh6mp6y5QVzYrwxYD5WABbpZRqiOf2mA3GeC82kI1nIY99D3x2qiFSVAnLCT6oAN3qchWMMhVMejELyMm5eK+LNQxOTnF5H9sYC/5m/h7/lb+PXcHFJncigu3EZx8Tau8CuQ+0wo/Rao5hjGq1mQHtraluYD64BK2FtKv4VQLV8C3MwX8W8Z3zpY1ddK5wyXw3x4qXRenvmtBJADJoI1LMaq6K2gh6l06cecEY1wwPk0jHvYVwaoR21QzTGQVQzG3MywSx10ChrhIOKVygD2xynEv7ahf2Nj3E/BOjGFxHdJmN8nER5kYX44BfunSdjnLoD7RCoDCJ06yCoG59+h8q74YPKuRjgIVnNlgMzZPFb1NawaazCPT2H6qyx+t67jD+s6UiM5TJ7KYC15A2uTN1AgF8sASr8FsorBqJtad8WJ5KZGOCDdzGuTSCOcxxJFN948QCOcOztJlDqTQ5rKIk1lEQrQ+GVoBhk2hwybA31cRPLkRWSFWWSFPGIj8TKA/LREpSU3lC/Z+TSN2fMLyI8uQCMc2B9NYy54GXOhK0h+loZ5YgoL0atYoK4icza/45JJNz3rihPJ0xrhgH+JZzrzjEQrz3mmo256yKUdc/a9iR+NrGIelexCIxxHHbDBH3liFZfIRSxNL2MptYzw+xxmfijgWnoF19IrEL9UkBrJYTmziuXMKhI/O/+1ineZxBObHjAr1X7rwesyO7KavUe6qbfKHFU9aveW7Lrl1ex63MN0Pi9wvigFju9/Bk4te3LXVFN6rR6pO3Ff6jIgdr4oMmVEGh5HZr1wb6KW33nyZ0vsNirEbsPaS+hHvNKjkFdKTNRxb++peZlknWal0KEP80fiea5dW2falA26Vd6gWmLrkUZ5NtokDkUbxYrdevwDulQSkE1EjOQAAAAASUVORK5CYII=" alt="" width="32dp" height="32dp">
+      <div>기본 메뉴</div>
+    </div>
+  
+    <div class="item" onclick="fire(3)">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABw0lEQVRIid1VPS8EQRgeuVgFlU6hFhGVilNjdnZdxD67U1Acyc47624Ptz/jEpVfoPIvuEZB4h/ofKuIQiKhYOPczd7eRRRMMsUkT55n3uf9YuzfHwCFJYTzrlSJG0QNN4garlQJ9ytFAIWfEFsOVE1AX9ugN9MV0Ne2pBiA1Rf5Qnl3XECdZxF3CqnzhfLueM/kNuiqV/L0cl9f5opUq9Uh088F6NEGra8nyfDiWjgmJG1w6AdTJF3tcqBqBvJnB1uz7dgSwmkBeumIRlJsJAdQMCbU1ycpRnhb246ny19vdWBKvLG6uF8pZvnrBlFDeHSYvpdRm2CMMVeqxIQvyXiuQyAL/P3qWxHQ/kwYDjLGGA/UnjHhHtU7BYKokUcORCNflm6OmhKdRty3gIA+S7GLqztTNui0m6V9WyR8uvm0ZkAguujaEyaLuiW5ReTYhj7KwxmTnFmm321qCuhmDsZcpoyZG63l9/cALACWDX2XKZLVaJ9RWFlDToBeSwinV4LtSQf6yYzJGRWMfQw77uvL/J5oS2wvw65V5NfGdatdtqQ4b+G4nq72vXDahArcrxS5R/V0ZXKP6iUZz/1oZf6Z8w5U8UMlhXk7UwAAAABJRU5ErkJggg==" alt="" width="32dp" height="32dp">
+      <div>소스 관리</div>
+    </div>
+  
+    <div class="item" onclick="fire(5)">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABw0lEQVRIid1VPS8EQRgeuVgFlU6hFhGVilNjdnZdxD67U1Acyc47624Ptz/jEpVfoPIvuEZB4h/ofKuIQiKhYOPczd7eRRRMMsUkT55n3uf9YuzfHwCFJYTzrlSJG0QNN4garlQJ9ytFAIWfEFsOVE1AX9ugN9MV0Ne2pBiA1Rf5Qnl3XECdZxF3CqnzhfLueM/kNuiqV/L0cl9f5opUq9Uh088F6NEGra8nyfDiWjgmJG1w6AdTJF3tcqBqBvJnB1uz7dgSwmkBeumIRlJsJAdQMCbU1ycpRnhb246ny19vdWBKvLG6uF8pZvnrBlFDeHSYvpdRm2CMMVeqxIQvyXiuQyAL/P3qWxHQ/kwYDjLGGA/UnjHhHtU7BYKokUcORCNflm6OmhKdRty3gIA+S7GLqztTNui0m6V9WyR8uvm0ZkAguujaEyaLuiW5ReTYhj7KwxmTnFmm321qCuhmDsZcpoyZG63l9/cALACWDX2XKZLVaJ9RWFlDToBeSwinV4LtSQf6yYzJGRWMfQw77uvL/J5oS2wvw65V5NfGdatdtqQ4b+G4nq72vXDahArcrxS5R/V0ZXKP6iUZz/1oZf6Z8w5U8UMlhXk7UwAAAABJRU5ErkJggg==" alt="" width="32dp" height="32dp">
+      <div>더미 기능</div>
+    </div>
+  
+    <div class="item" onclick="fire(8)">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAEJ0lEQVRIiY1VTU8bVxT132glEqk/qZsom25jB0TrFkSaRIyxoSnYGH+MP8bGHht/zMyzZ+YBiZQCMk0UdRHiKAY886ZCySpdR0nYNAmni/lwjY2VJ93Vm3fOvefee8bnm3DUv9XvCKP3CKMHCqP/EEb/tUN/q1j6HrHoHdVQr0/CmATcVkz9gjCKiWHSL4pJJdLfvfZV4C2L/iAz7dwFqPfaiGqbuCtkMJ/kMZ9M456QRVQvodFre0Qyox8UU785EVxhdMF90Oi1cVfIIrCUR4Arjo+lPO4Xcqi/anlEikWDV2bufpTr1DETyV4CzOMWl8ItLgU/N0w6E8kg29mCYuo2kUVvjGjuypLr1IazDq+DE+PgDwQIT8sQnpaR2hOwWI4jsBT3vrsdyiF3WINi6pCZ9l46o1P/k0ZrubJMh+3M/VwB8+kYCs9ENI5bI81t9AgKz0TMJaMIcAUEuCKml7OodmVbKkbrXvbutPyay3gZLfAxVLvSQFtDx7aUgtZIDBFVuxJ+SUa9d/eLWUh9FbJBP0tndMrnzDkaxyoCoZwjSxyVo+YQkNRXscv/Bj0ZGWjtROWoidvhDfttKDeowqRzPsLoAWEUq+qgaSvNDBRjGEQ6VbGTXoGWCI/cEUbBVRLe+xjddJN45HM2FAuZpDct1RfSCIB0qmI3tQx9YzzBmiZ4vZhLppD/sw7F0N74nPXHT1G7RH8ojeZJewSgvF9APxLGaSSMcqc0cj+XSA6N7oqUR6PfOvcIZlddDccT5Hd5nETCsCIR1MS1kfvcExEBLm3vxUoc4vM6FFP96CNMf0sYxXzCIeAE1Hvjx7L4hwAhHcLJchhSKzV0r5g6wrUEAlwWqcdFyH0NsqG+9imWvkcYRaTJe+Wtb5dHJsUd1cpRE2Vx1SFJD93XXxGkHm9COlXdKXroIxa9QxhF5XkTfs5estkHaUh99UoHrXYliA5JU8+MVDLkS6qhXrctV8fPsZhXRbgmjJ0WN7ZeytiSEyi3kxCeNMDv18Dv19DoqY67ap8ktv2tbRUmlQij2PyrBj+XcppdwNJW/koSxdQhnapYLGUQCDlWEcmg8sJeMtmioudFpL97TWb0gz3PGU+qAFfEj7/ziO+UPV0Jo5D7GtZ3RMw+GFiLfzGDNZ23pTXoOy97z/BM/aZrCasqP6jEjVAB0+GsbYZOxh44l8SqyqN50oZsaBctc/v78T8ciwZdkuxhCcH16FA1l8PPZRBcjyLbKTkGp10Qc3tm4l+NWPSGzLT3biNzhyUsihsIxtYws2JHMLYGTtxArrOJrZeyPTkGfXdl5pePdEanFEbrskE/K6aOxnEL1a6EylETlaMmql0JjeMWFEOHzLRPskVF1VC/+SrwESKTzhFGHxFG3yhMPydM/6iY+mvFpA8ViwZHmnnp/AfTd3IKh1P4AAAAAABJRU5ErkJggg==" alt="" width="32dp" height="32dp">
+      <div>시스템 기능</div>
+    </div>
+  </div>
+  <template id="item_template">
+    <div class="item" onclick="fire({no})">
+      <img src="{uri}" alt="" width="24dp" height="24dp">
+      {id}
+    </div>
+  </template>
+
+  <footer>
+    <p>© <a href="#">Web3P eRunApp.ez</a></p>
+  </footer>
+</body>
+</html>

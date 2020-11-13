@@ -10,18 +10,10 @@ header {
     height: 36px;
     background-color:#d0def5;
 }
-  
-header p {
-    margin: auto;
-    padding: 5px;
-    text-align: center;
-    font-size: 20px;
-}
 
 header div {
   position: fixed;
-  margin-top: 1px;
-  padding: 5px;
+  padding: 6px;
   width: 100%;
   top: 0;
   display: grid;
@@ -63,8 +55,19 @@ footer button:hover {
 .item {
     border: 1px solid #87b5ff;
     border-radius: 2px;
+    background-color: #d0def5;
+    display: flex;
+    flex-direction: column;
+}
+
+.item > img {
+    display: block;
+    margin: auto;
+}
+
+.item > div {
     text-align: center;
     font-size: 1em;
     font-family: sans-serif;
-    background-color: #d0def5
+    word-wrap: normal;
 }

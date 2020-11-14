@@ -17,13 +17,14 @@ header > div {
   position: absolute;
   width: 100%;
   top: 6px;
+  display: inline-block;
 }
 
-header > div > img:first-child {
+header img:first-child {
     margin-left: 6px;
 }
 
-header > div > img:last-child {
+header img:last-child {
     margin-right: 6px;
     float: right;
 }

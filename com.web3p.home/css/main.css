@@ -17,10 +17,7 @@ header > div {
   position: absolute;
   width: 100%;
   top: 6px;
-}
-
-header img {
-    display: inline;
+  display: inline-block;
 }
 
 header img:first-child {

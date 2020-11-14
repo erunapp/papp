@@ -56,19 +56,23 @@ footer button:hover {
   grid-row-gap: 1em;
 }
 
-#id {
-  position: relative;
-  margin-bottom: 30px;
-}
-
 input[type="text"] {
   border: 1px solid #a9a9a9;
   padding: 3px;
   width: 90%;
 }
 
+#id {
+  position: relative;
+  margin-bottom: 30px;
+}
+
 textarea {
   border: 1px solid #a9a9a9;
   padding: 3px;
   width: 90%;
+}
+
+#info textarea {
+  height: 8em;
 }

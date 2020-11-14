@@ -21,6 +21,10 @@ function save() {
 	history.back();
 };
 
+function edit() {
+	location.href = "tree.html?app=" + location.search.substr(5);
+}
+
 var flds = window.eval(wdp.initForm());
 
 load();

@@ -2,10 +2,9 @@
 document.getElementById("head").innerText = location.search.substr(5);
 var container = document.getElementById("container");
 
-let folder = document.getElementById('folder').innerHTML,
-	file = document.getElementById('file').innerHTML;
-
 function tree(node) {
+	let folder = document.getElementById('folder').innerHTML,
+		file = document.getElementById('file').innerHTML;
 	let html = [];
 
 	for (key in node) {
@@ -18,12 +17,11 @@ function tree(node) {
 	return html.join('');
 }
 
-let state = wdp.loadState();
-container.innerHTML = (state == "") ? tree(JSON.parse(wdp.tree(location.search.substr(5)))) : state;
+container.innerHTML = (history.state == null) ? tree(JSON.parse(wdp.tree(location.search.substr(5)))) : history.state;
 
 container.addEventListener('click', event => {
 	if (event.target.tagName == "BUTTON") {
-		wdp.saveState(container.innerHTML);
+		history.replaceState(container.innerHTML,'');
 		
 		let val = event.target.value;
 		location.href=`edit.html?file=${val}`;

@@ -1,15 +1,22 @@
 body, html {
-    width: 100%;
-    height: 100%;
     margin: 0;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
 header {
-    position: fixed;
+    position: sticky;
+    z-index: 9;
     top: 0;
     width: 100%;
     height: 36px;
+    background-color:#d0def5;
+}
+  
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
     background-color:#d0def5;
 }
 
@@ -27,41 +34,19 @@ header img:last-child {
     margin-right: 6px;
     float: right;
 }
-  
-section {
-    position: relative;
-    margin-top: 50px;
-}
-  
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-}
-  
-footer button {
-    flex: auto;
-    font-size: 16px;
-}
-  
-footer button:hover {
-    opacity: 0.8;
-}
 
 #container {
-    margin: 36px 0 40px 0;
     display: grid;
     grid-gap: 4px;
-    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-    grid-template-rows: repeat(6, 84px);
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    grid-auto-rows: 85px;
     background-color: #2196F3;
     padding: 5px;
+    margin-bottom: 40px;
 }
 
 .item {
-    border: 1px solid #87b5ff;
-    border-radius: 2px;
+    border-radius: 1px;
     background-color: #d0def5;
     display: flex;
     flex-direction: column;

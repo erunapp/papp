@@ -1,4 +1,37 @@
-@charset "UTF-8";
+body, html {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+header {
+    position: sticky;
+    z-index: 9;
+    top: 0;
+    width: 100%;
+    height: 36px;
+    background-color:#0000;
+}
+
+header p {
+    margin: auto;
+    padding: 6px;
+    border: 1px solid #999;
+    text-align: center;
+    font-size: 1rem;
+}
+  
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color:#d0def5;
+}
+
+main {
+  position: relative;
+  margin-top: 10px;
+}
 
 details {
     border: 1px solid #aaa;
@@ -17,7 +50,7 @@ details[open] {
     padding: .5em;
 }
 
-p {
+main p {
     margin: .2em .5em -.2em;
     padding: 0;
 }

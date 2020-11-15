@@ -1,33 +1,33 @@
-body {
+body, html {
   margin: 0;
-  font-family: D2Coding, 'Segoe UI', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: white;
+    position: sticky;
+    z-index: 9;
+    top: 0;
+    width: 100%;
+    height: 36px;
+    background-color:#0000;
 }
 
 header p {
   margin: auto;
-  padding: 5px;
-  border: 2px solid #999;
+  padding: 6px;
+  border: 1px solid #999;
   text-align: center;
-  font-size: 20px;
+  font-size: 1rem;
 }
-
-section {
-  position: relative;
-  margin-top: 80px;
-}
-
+  
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 34px;
+    display: flex;
+    padding-top: 6px;
+    background-color:#0000;
 }
 
 footer button {
@@ -37,6 +37,11 @@ footer button {
 
 footer button:hover {
   opacity: 0.8;
+}
+
+main {
+  position: relative;
+  margin-top: 36px;
 }
 
 .period {

@@ -16,7 +16,7 @@ header p {
     margin: auto;
     padding: 8px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: bold;
 }
 
@@ -24,6 +24,8 @@ header img {
     position: absolute;
     top: 6px;
     right: 6px;
+    width: 24px;
+    height: 24px;
 }
   
 footer {

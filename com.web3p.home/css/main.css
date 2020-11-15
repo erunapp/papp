@@ -26,6 +26,11 @@ header > div {
   top: 6px;
 }
 
+header img {
+    width: 24px;
+    height: 24px;
+}
+
 header img:first-child {
     margin-left: 6px;
 }
@@ -33,6 +38,11 @@ header img:first-child {
 header img:last-child {
     margin-right: 6px;
     float: right;
+}
+
+main img {
+    width: 32px;
+    height: 32px;
 }
 
 #container {

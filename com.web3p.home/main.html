@@ -11,16 +11,16 @@
 <body>
   <header>
     <div id="runnings">
-      <img src="img/grid.png" alt="grid" width="24dp" height="24dp" />
-      <img src="img/list.png" alt="list" width="24dp" height="24dp" />
-      <img src="img/card.png" alt="card" width="24dp" height="24dp" />
-      <img src="img/play.png" alt="play" width="24dp" height="24dp" onclick="setMode(false);" />
+      <img src="img/grid.png" alt="grid" />
+      <img src="img/list.png" alt="list" />
+      <img src="img/card.png" alt="card" />
+      <img src="img/play.png" alt="play" onclick="setMode(false);" />
     </div>
     <div id="editings">
-      <img src="img/host.png" alt="grid" width="24dp" height="24dp" />
-      <img src="img/cart.png" alt="list" width="24dp" height="24dp" />
-      <img src="img/home.png" alt="card" width="24dp" height="24dp" />
-      <img src="img/edit.png" alt="play" width="24dp" height="24dp" onclick="setMode(true);" />
+      <img src="img/host.png" alt="grid" />
+      <img src="img/cart.png" alt="list" />
+      <img src="img/home.png" alt="card" />
+      <img src="img/edit.png" alt="play" onclick="setMode(true);" />
     </div>
   </header>
 
@@ -46,7 +46,7 @@
     
     <template id="item_template">
       <div class="item" onclick="fire({no})">
-        <img src='{uri}' alt='' width="32dp" height="32dp" />
+        <img src='{uri}' alt='' />
         <div>{id}</div>
       </div>
     </template>

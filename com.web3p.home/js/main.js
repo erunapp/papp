@@ -15,7 +15,8 @@ function init() {
 };
 
 function fire(no) {
-    if (history.state == null) history.pushState([items,state], ''); else history.replaceState([items,state], '');
+    let list = document.getElementById("container").innerHTML;
+    if (history.state == null) history.pushState([items,list,state], ''); else history.replaceState([items,list,state], '');
     location.href = (state ? "papp://" + items[no].url : "info.html") + "?app=" + items[no].app;
 }
 
@@ -31,7 +32,10 @@ function setMode(mode) {
 }
 
 if (history.state == null) {
-    init();     setMode(state);
+    init();
 } else {
-    [items,state] = history.state;
+    let list;
+    [items,list,state] = history.state;
+    document.getElementById("container").innerHTML = list;
 }
+setMode(state);

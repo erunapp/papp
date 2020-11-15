@@ -1,7 +1,7 @@
-var items = eval(wdp.getList());
-var state = true;
+var items, state;
 
-(function () {
+function init() {
+    items = eval(wdp.getList());       state = true;
     let list = document.getElementById("container"),
 		temp = document.getElementById("item_template").innerHTML,
         html = [];
@@ -12,9 +12,10 @@ var state = true;
         html.push(item);
     };
     list.innerHTML = html.join("");
-}());
+};
 
 function fire(no) {
+    if (history.state == null) history.pushState([items,state], ''); else history.replaceState([items,state], '');
     location.href = (state ? "papp://" + items[no].url : "info.html") + "?app=" + items[no].app;
 }
 
@@ -29,4 +30,8 @@ function setMode(mode) {
     state = mode;
 }
 
-setMode(state);
+if (history.state == null) {
+    init();     setMode(state);
+} else {
+    [items,state] = history.state;
+}

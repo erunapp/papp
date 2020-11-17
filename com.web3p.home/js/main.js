@@ -16,7 +16,9 @@ function init() {
 
 function fire(no) {
     history.replaceState([items, document.getElementById("container").innerHTML, mode], '');
-    location.href = (mode ? "papp://" + items[no].url : "info.html") + "?app=" + items[no].app;
+
+    if (mode) wdp.play(items[no].url, items[no].app);
+    else      wdp.edit(items[no].app);
 }
 
 function setMode(newMode) {

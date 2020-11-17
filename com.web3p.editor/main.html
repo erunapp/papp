@@ -5,30 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/main.js" defer></script>
-  <title>소스 관리</title>
+  <title>eRunApp.ez</title>
 </head>
 
 <body>
   <header>
-    <p>앱소스</p>
+    <p>앱 정보</p>
   </header>
 
-  <section>
-  	<div id="container">
-  	</div>
-  	
-    <template id="folder">
-      <details>
-          <summary>{name}</summary>
-          {children}
-      </details>
-    </template>
-    <template id="file">
-      <p><button value={path}>{name}</button></p>
-    </template>
-  </section>
+  <main>
+    <form action="javascript:void(0)">
+      <div class="record">
+        Group
+        <div id="group">
+          <input type="text" placeholder="group>sub>ssub>sssub" name="group" autofocus>
+        </div>
+  
+        Id
+        <div id="id">
+          <input type="text" placeholder="Enter id." name="id">
+        </div>
+  
+        Icon
+        <div id="icon">
+          <img src="#" alt="" name="iconimg" />
+          <input type="text" placeholder="Enter url." name="icon">
+        </div>
+  
+        App
+        <div id="app">
+          <input type="text" placeholder="Enter package." name="app">
+        </div>
+  
+        Url
+        <div id="url">
+          <input type="text" placeholder="Enter host." name="url">
+        </div>
+  
+        Tag
+        <div id="tag">
+          <textarea placeholder="Enter tag list." name="tag"></textarea>
+        </div>
+  
+        Info
+        <div id="info">
+          <textarea placeholder="Enter info." name="info"></textarea>
+        </div>
+      </div>
+    </form>
+  </main>
 
   <footer>
+    <button onclick="save();" name="save" type="submit">저장</button>
+    <button onclick="edit();" name="edit">소스보기</button>
+    <button onclick="history.back();" name="cancel">취소</button>
   </footer>
 </body>
 </html>

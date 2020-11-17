@@ -1,30 +1,30 @@
 ;
-var container = document.getElementById("container");
+var data = {
+	    group: "",
+	    id: "",
+	    icon: "",
+	    app: "",
+	    url: "",
+	    tag: "",
+	    info: ""
+	};
 
-let folder = document.getElementById('folder').innerHTML,
-	file = document.getElementById('file').innerHTML;
+function load() {
+	data = JSON.parse(wdp.load(location.search.substr(5)));
+    for (let id in data) flds[id] = data[id];
+	flds['iconimg'] = data['icon'];
+};
 
-function tree(node) {
-	let html = [];
+function save() {	
+	for (let id in data) data[id] = flds[id];
+	wdp.save(JSON.stringify(data));
+	history.back();
+};
 
-	for (key in node) {
-		if (typeof node[key] === 'number') {
-			html.push(file.replace('{name}', key).replace('{path}', node[key]));
-		} else {
-			html.push(folder.replace('{name}', key).replace('{children}', tree(node[key])));
-		}
-	}
-	return html.join('');
+function edit() {
+	location.href = "tree.html?app=" + location.search.substr(5);
 }
 
-let state = wdp.loadState();
-container.innerHTML = (state == "") ? tree(JSON.parse(wdp.getFiles())) : state;
+var flds = window.eval(wdp.initForm());
 
-container.addEventListener('click', event => {
-	if (event.target.tagName == "BUTTON") {
-		wdp.saveState(container.innerHTML);
-		
-		let val = event.target.value;
-		location.href=`edit.html?file=${val}`;
-	}
-});
+load();

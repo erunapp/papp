@@ -18,7 +18,7 @@ function tree(node) {
 }
 
 function download() {
-	
+	container.innerHTML = tree(JSON.parse(wdp.down(location.search.substr(5))));
 }
 
 container.innerHTML = (history.state == null) ? tree(JSON.parse(wdp.tree(location.search.substr(5)))) : history.state;

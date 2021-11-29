@@ -1,0 +1,91 @@
+<style>
+    .container {
+      padding: 2px;
+      display: flex;
+      flex-flow: row wrap;
+      background-color: #EFE1CE;
+    }
+
+    .item {
+        display: inline-flexbox;
+        text-align: center;
+        width: 79px;
+        margin: 3px;
+        font-size: 18px;
+        color: #000;
+        background-color: #E0B589;
+    }
+
+    .item p {
+        margin: 4px;
+        height: 21px;
+    }
+
+    .icon {
+        font-size: 16px;
+    }
+
+    .icon span:nth-child(1) {
+        display: none;
+    }
+
+    .icon span:nth-child(2) {
+        width: 20px;
+        float: left;
+    }
+
+    .icon span:nth-child(3) {
+        width: 20px;
+        float: right;
+    }
+
+    .icon span:nth-child(4) {
+        width: 20px;
+        float: right;
+    }
+
+    .name span {
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+</style>
+
+
+<section class="container">
+    <div class="item">
+        <p class="icon">
+            <span>${uid}</span><span>${icon}</span><span>${user}</span><span>${star}</span>
+        </p>
+        <p class="name">
+            <span>${name}</span>
+        </p>
+    </div>
+</section>
+
+
+<script>
+    this.host.$htm = (function (shadow) {
+        const container = shadow.querySelector('.container');
+        const item = container.querySelector('.item').cloneNode(true);
+
+        return {
+            init: function() {
+                container.innerHTML = '';
+            },
+            append: function(uid, icon, name, star = '', user = '') {
+                const node = item.cloneNode(true);
+                node.innerHTML = node.innerHTML
+                    .replace('${uid}', uid)
+                    .replace('${icon}', icon)
+                    .replace('${name}', name)
+                    .replace('${star}', star)
+                    .replace('${user}', user);
+                container.append(node);
+                return node;
+            }
+        };
+    })(this);
+</script>

@@ -1,0 +1,55 @@
+<style>
+    .path span+span:before {
+        content: "›";
+    }
+
+    .path span {
+        text-align: center;
+    }
+
+    .button {
+        border: none;
+        margin: 0px 2px;
+        cursor: pointer;
+        color: #f8f8f8;
+        background-color: transparent;
+        transition-duration: 0.4s;
+    }
+
+    .button:hover {
+        background-color: #010047;
+        color: white;
+    }
+</style>
+
+
+<div class="container">
+    <span class="item">
+        <button class="button">${path}</button>
+    </span>
+</div>
+
+<script>
+    this.host.$htm = (function(shadow) {
+        const root = shadow.querySelector('.container');
+        const item = root.querySelector('.item').cloneNode(true);
+
+        root.innerHTML = '';
+
+        return {
+            append: function(title) {
+                const span = item.cloneNode(true);
+                span.innerHTML = span.innerHTML
+                    .replace('${path}', title);
+                root.append(span);
+                return span;
+            },
+            rollup: function(span) {
+                while (span !== root.lastElementChild) {
+                    root.lastElementChild.remove();
+                };
+                return root.children.length;
+            }
+        };
+    })(this);
+</script>

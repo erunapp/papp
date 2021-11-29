@@ -1,0 +1,87 @@
+<style>
+    .container {
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border-style: none;
+      padding: 4px;
+      width: 100%;
+    }
+
+    tr:nth-child(2n+1) {
+        color: #000;
+        background-color: #EFE1CE;
+    }
+
+    tr:nth-child(even) {
+        color: #000;
+        background-color: #E0B589;
+    }
+
+    tr td {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 6px 4px;
+    }
+
+    tr td:nth-child(1) {
+        display: none;
+    }
+
+    tr td:nth-child(2) {
+        width: 10%;
+        text-align: center;
+    }
+
+    tr td:nth-child(3) {
+        width: 65%;
+        text-align: left;
+    }
+
+    tr td:nth-child(4) {
+        width: 10%;
+        text-align: center;
+    }
+
+    tr td:nth-child(5) {
+        width: 15%;
+        text-align: right;
+    }
+</style>
+
+
+<table class="container">
+    <tr class="item">
+        <td>${uid}</td>
+        <td>${icon}</td>
+        <td>${name}</td>
+        <td>${star}</td>
+        <td>${user}</td>
+    </tr>
+</table>
+
+
+<script>
+    this.host.$htm = (function (shadow) {
+        const container = shadow.querySelector('.container');
+        const item = container.querySelector('.item').cloneNode(true);
+
+        return {
+            init: function() {
+                container.innerHTML = '';
+            },
+            append: function(uid, icon, name, star = '', user = '') {
+                const node = item.cloneNode(true);
+                node.innerHTML = node.innerHTML
+                    .replace('${uid}', uid)
+                    .replace('${icon}', icon)
+                    .replace('${name}', name)
+                    .replace('${star}', star)
+                    .replace('${user}', user);
+                container.append(node);
+                return node;
+            }
+        };
+    })(this);
+</script>

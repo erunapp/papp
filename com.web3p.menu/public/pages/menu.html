@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu</title>
+
+  <style>
+    :root {
+      --fore-color: #fff;
+      --back-color: #B55A30;
+    }
+
+    header {
+      color: var(--fore-color);
+      background-color: var(--back-color);
+    }
+
+    .path {
+      padding: 4px;
+      height: 20px;
+    }
+
+    button.fixed {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #73AD21;
+    }
+  </style>
+  <script type="module" src="../assets/js/menu.js"></script>
+</head>
+
+<body is="wdp-page">
+  <header>
+    <nav is="wdp-breadcrumb" class="path">
+    </nav>
+  
+    <button class="fixed">&gt;</button>
+  </header>
+
+  <main is="wdp-view">
+    <div is="wdp-menu-list">
+    </div>
+  </main>
+
+  <main is="wdp-view">
+    <div is="wdp-menu-flex">
+    </div>
+  </main>
+
+  <main is="wdp-view">
+    <div is="wdp-menu-card">
+    </div>
+  </main>
+</body>
+
+</html>

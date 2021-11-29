@@ -2,7 +2,7 @@
   "name": "wc-w3",
   "version": "0.1.0",
   "description": "for Web Components with w3.css",
-  "main": "public/index.html",
+  "main": "web/index.html",
   "scripts": {
     "build": "webpack --color --node-env development",
     "serve": "webpack serve"

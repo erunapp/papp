@@ -58,7 +58,7 @@ export class MenuList extends WdpDivElement {
             this.#listData(uid);
             mediator.notify('PathAppend', event.currentTarget.children[2].textContent);
         } else {
-            console.log(uid);
+            storeMenu.navigate(uid);
         }
     }
 

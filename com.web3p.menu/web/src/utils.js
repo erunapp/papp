@@ -1,6 +1,6 @@
 
 export const mediator = (function() {
-    const topics = {};
+    const topics = {};  // PageRequest, PathReturn, PathAppend
 
     return {
         notify: function(topic, data) {

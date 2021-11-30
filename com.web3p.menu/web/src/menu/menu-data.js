@@ -1,4 +1,6 @@
 // MenuData Provider
+import { mediator } from '../utils';
+
 export const storeMenu = (function() {
     const store = {
             "$": [
@@ -203,14 +205,17 @@ export const storeMenu = (function() {
                 return [];
             }
         },
-        
         getPath: function(len) {
             if (len > 0 && len < current.length) {
                 return current.substring(0, len);
             }
             return current;
         },
-
+        navigate: function(uid) {
+            let data = store[current][uid-1];
+            let url = data.host + '/com.web3p.clock/web/main.html';
+            mediator.notify('PageRequest', url);
+        },
         current: () => current,
     };
 })();

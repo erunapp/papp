@@ -1,31 +1,32 @@
 import shadowHTML from './menu-card.htm';
-import { WdpDivElement } from '../WdpDivElement';
-import { storeMenu } from './menu-data';
-import { toIconHtml as icon, mediator } from '../utils';
+import { WdpDivElement } from '../commons/WdpDivElement';
+import { toIconHtml as icon, Observer, Mediator } from '../commons/utils';
 
 export class MenuCard extends WdpDivElement {
 	static get observedAttributes() {
 		return ["hidden"];
 	}
 
+    #Store;
     #MenuSelect = this.#onClickMenuItem.bind(this);
     #PathReturn = this.#onClickBreadcrumb.bind(this);
     #current = '';
     
     constructor() {
         super(shadowHTML);
+        this.#Store = Mediator.consume('Store', 'Menu');
     }
 
     connectedCallback() {
         if (this.hidden) return;
         
-        if (this.#current != storeMenu.current)
+        if (this.#current != this.#Store.current)
             this.#listData();
-        mediator.listen('PathReturn', this.#PathReturn);
+        Observer.listen('PathReturn', this.#PathReturn);
     }
 
     disconnectedCallback() {
-        mediator.remove('PathReturn', this.#PathReturn);
+        Observer.remove('PathReturn', this.#PathReturn);
     }
 
 	attributeChangedCallback(name, oldValue, newValue) {
@@ -44,29 +45,29 @@ export class MenuCard extends WdpDivElement {
     #listData(uid) {
         this.$htm.init();
 
-        storeMenu.select(uid).forEach(data => {
-            const host = data.host ? (data.host + '?pid=' + data.page) : '';
-            const item = this.$htm.append(data.uid, icon(data.icon), data.name, data.star, data.user, host, data.desc, data.tags.join(','));
+        this.#Store.select(uid).forEach(data => {
+            let host = data.host ? (data.host + '?pid=' + data.page) : '';
+            let item = this.$htm.append(data.uid, icon(data.icon), data.name, data.star, data.user, host, data.desc, data.tags.join(','));
             item.addEventListener("click", this.#MenuSelect);
         });
-        this.#current == storeMenu.current;
+        this.#current == this.#Store.current;
     }
 
     #onClickMenuItem(event) {
-        const all = event.currentTarget.querySelectorAll('span');
-        const uid = all[0].textContent;
+        let all = event.currentTarget.querySelectorAll('span');
+        let uid = all[0].textContent;
 
         if (uid.startsWith('$')) {
             this.#listData(uid);
-            mediator.notify('PathAppend', all[2].textContent);
+            Observer.notify('PathAppend', all[2].textContent);
         } else {
-            console.log(uid);
+            this.#Store.navigate(uid);
         }
     }
 
     #onClickBreadcrumb(count) {
-        this.#listData(storeMenu.getPath(count));
+        this.#listData(this.#Store.getPath(count));
     }
-}
+};
 
 customElements.define("wdp-menu-card", MenuCard, {extends:'div'});

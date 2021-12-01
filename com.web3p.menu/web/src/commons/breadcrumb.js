@@ -1,6 +1,6 @@
 import shadowHTML from './breadcrumb.htm';
-import { WdpElement } from '../WdpElement';
-import { mediator } from '../utils';
+import { WdpElement } from './WdpElement';
+import { Observer } from './utils';
 
 export class Breadcrumb extends WdpElement {
 
@@ -14,11 +14,11 @@ export class Breadcrumb extends WdpElement {
 	connectedCallback() {
 		this.#appendPath("Path:");
 		
-		mediator.listen('PathAppend', this.#PathAppend);
+		Observer.listen('PathAppend', this.#PathAppend);
 	}
 
 	disconnectedCallback() {
-		mediator.remove('PathAppend', this.#PathAppend);
+		Observer.remove('PathAppend', this.#PathAppend);
 	}
 
 	#appendPath(path) {
@@ -29,8 +29,8 @@ export class Breadcrumb extends WdpElement {
 
 	#returnPath(event) {
 		event.currentTarget.removeEventListener("click", this.#PathReturn);
-		mediator.notify('PathReturn', this.$htm.rollup(event.currentTarget));
+		Observer.notify('PathReturn', this.$htm.rollup(event.currentTarget));
 	}
-}
+};
 
 customElements.define("wdp-breadcrumb", Breadcrumb, {extends:'nav'});

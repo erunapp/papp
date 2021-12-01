@@ -1,7 +1,7 @@
 // MenuData Provider
-import { mediator } from '../utils';
+import { Observer } from '../commons/utils';
 
-export const storeMenu = (function() {
+export const Store = (function() {
     const store = {
             "$": [
                 {
@@ -195,7 +195,7 @@ export const storeMenu = (function() {
 
     return {
         select: function(key) {
-            const path = key ?? current;
+            let path = key ?? current;
             let data = store[path];
 
             if (!!data) {
@@ -212,9 +212,7 @@ export const storeMenu = (function() {
             return current;
         },
         navigate: function(uid) {
-            let data = store[current][uid-1];
-            let url = data.host + '/com.web3p.clock/web/main.html';
-            mediator.notify('PageRequest', url);
+            Observer.notify('PageRequest', store[current][uid-1]);
         },
         current: () => current,
     };

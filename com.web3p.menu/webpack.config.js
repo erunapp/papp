@@ -7,7 +7,7 @@ module.exports = {
   target: ['web', 'es6'],
   context: path.resolve(__dirname, 'web/src'),
   entry: {
-    menu: './menu/menu.js'
+    menu: './menu.js'
   },
   output: {
     path: path.resolve(__dirname, 'web/assets/js'),

@@ -1,12 +1,11 @@
 
-export const mediator = (function() {
+export const Observer = (function() {
     const topics = {};  // PageRequest, PathReturn, PathAppend
 
     return {
         notify: function(topic, data) {
             topics[topic]?.forEach(listener => listener(data));
         },
-
         listen: function(topic, listener) {
             let listeners = topics[topic];
 
@@ -16,7 +15,6 @@ export const mediator = (function() {
                 listeners.push(listener);
             }
         },
-
         remove: function(topic, listener) {
             let listeners = topics[topic] ?? [];
 
@@ -27,29 +25,48 @@ export const mediator = (function() {
     };
 })();
 
+export const Mediator = (function() {
+    const topics = {};  // Store
+
+    return {
+        provide: function(topic, provider, force = false) {
+            if (!topics[topic] || force)
+                topics[topic] = provider;
+        },
+        consume: function(topic, data) {
+            let provider = topics[topic];
+            return provider? provider(data) : null;
+        },
+        remove: function(topic, provider) {
+            if (provider == topics[topic])
+                delete topics[topic];
+        },
+    };
+})();
+
 export const activateScript = function iterator(parent) {
     if (parent.tagName === "TEMPLATE") {
         activateTemplateScripts(parent.content);
     } else
-    for (const child of parent.children) {
+    for (let child of parent.children) {
         if (child.tagName === "SCRIPT") {
             new Function(child.textContent).call(parent);
         }
         else iterator(child);
     };
-}
+};
 
 const refreshScript = function(parent, child) {
-    const script = document.createElement('script');
-    for (const attr of child.attributes) {
+    let script = document.createElement('script');
+    for (let attr of child.attributes) {
         script.setAttribute(attr.name, attr.value)
     };
     script.textContent = child.textContent;
     parent.replaceChild(script, child);
-}
+};
 
 const activateTemplateScripts = function iterator(parent) {
-    for (const child of parent.children) {
+    for (let child of parent.children) {
         if (child.tagName === "TEMPLATE") {
             iterator(child.content);
         } else
@@ -62,8 +79,8 @@ const activateTemplateScripts = function iterator(parent) {
 
 export const toIconHtml = function (data) {
     if ("string" === typeof data && data.length > 3) {
-        const type = data.substring(0,3).toUpperCase();
-        const icon = data.substring(3);
+        let type = data.substring(0,3).toUpperCase();
+        let icon = data.substring(3);
         switch (type) {
             case "SVG": {
                 return `<svg width="16" height="16">${icon}</svg>`;

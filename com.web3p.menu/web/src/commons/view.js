@@ -13,6 +13,6 @@ export class View extends HTMLElement {
 
     disconnectedCallback() {
     }
-}
+};
 
 customElements.define("wdp-view", View, {extends:'main'});

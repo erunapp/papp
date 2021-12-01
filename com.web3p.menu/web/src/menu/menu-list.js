@@ -1,31 +1,32 @@
 import shadowHTML from './menu-list.htm';
-import { WdpDivElement } from '../WdpDivElement';
-import { storeMenu } from '../menu/menu-data';
-import { toIconHtml as icon, mediator } from '../utils';
+import { WdpDivElement } from '../commons/WdpDivElement';
+import { toIconHtml as icon, Observer, Mediator } from '../commons/utils';
 
 export class MenuList extends WdpDivElement {
 	static get observedAttributes() {
 		return ["hidden"];
 	}
 
+    #Store;
     #MenuSelect = this.#onClickMenuItem.bind(this);
     #PathReturn = this.#onClickBreadcrumb.bind(this);
     #current = '';
     
     constructor() {
         super(shadowHTML);
+        this.#Store = Mediator.consume('Store', 'Menu');
     }
 
     connectedCallback() {
         if (this.hidden) return;
 
-        if (this.#current != storeMenu.current)
+        if (this.#current != this.#Store.current)
             this.#listData();
-        mediator.listen('PathReturn', this.#PathReturn);
+        Observer.listen('PathReturn', this.#PathReturn);
     }
 
     disconnectedCallback() {
-        mediator.remove('PathReturn', this.#PathReturn);
+        Observer.remove('PathReturn', this.#PathReturn);
     }
 
 	attributeChangedCallback(name, oldValue, newValue) {
@@ -44,27 +45,27 @@ export class MenuList extends WdpDivElement {
     #listData(uid) {
         this.$htm.init();
 
-        storeMenu.select(uid).forEach(data => {
-            const item = this.$htm.append(data.uid, icon(data.icon), data.name, data.star, data.user);
+        this.#Store.select(uid).forEach(data => {
+            let item = this.$htm.append(data.uid, icon(data.icon), data.name, data.star, data.user);
             item.addEventListener("click", this.#MenuSelect);
         });
-        this.#current == storeMenu.current;
+        this.#current == this.#Store.current;
     }
 
     #onClickMenuItem(event) {
-        const uid = event.currentTarget.children[0].textContent;
+        let uid = event.currentTarget.children[0].textContent;
 
         if (uid.startsWith('$')) {
             this.#listData(uid);
-            mediator.notify('PathAppend', event.currentTarget.children[2].textContent);
+            Observer.notify('PathAppend', event.currentTarget.children[2].textContent);
         } else {
-            storeMenu.navigate(uid);
+            this.#Store.navigate(uid);
         }
     }
 
     #onClickBreadcrumb(count) {
-        this.#listData(storeMenu.getPath(count));
+        this.#listData(this.#Store.getPath(count));
     }
-}
+};
 
 customElements.define("wdp-menu-list", MenuList, {extends:'div'});

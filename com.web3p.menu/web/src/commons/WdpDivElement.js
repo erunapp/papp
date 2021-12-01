@@ -24,4 +24,4 @@ export class WdpDivElement extends HTMLDivElement {
 	$queryShadowAll(selector) {
 		return this.shadowRoot.querySelectorAll(selector);
 	}
-}
+};

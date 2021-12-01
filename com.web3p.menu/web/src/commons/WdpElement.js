@@ -20,4 +20,4 @@ export class WdpElement extends HTMLElement {
 			return this.shadowRoot.getElementById(selector.substring(1));
 		return this.shadowRoot.querySelector(selector);
 	}
-}
+};

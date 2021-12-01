@@ -34,6 +34,6 @@ export class Page extends HTMLBodyElement {
         this.#currentView = (this.#currentView + 1) % this.#views.length;
         this.#views[this.#currentView].children[0].hidden = false;
     }
-}
+};
 
 customElements.define("wdp-page", Page, {extends:'body'});

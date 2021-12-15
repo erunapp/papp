@@ -1,12 +1,11 @@
-
-export const Observer = (function() {
-    const topics = {};  // PageRequest, PathReturn, PathAppend
+export const Observer = (function () {
+    const topics = {}; // PageRequest, PathReturn, PathAppend
 
     return {
-        notify: function(topic, data) {
-            topics[topic]?.forEach(listener => listener(data));
+        notify: function (topic, data) {
+            topics[topic] ?.forEach(listener => listener(data));
         },
-        listen: function(topic, listener) {
+        listen: function (topic, listener) {
             let listeners = topics[topic];
 
             if (!listeners) {
@@ -15,7 +14,7 @@ export const Observer = (function() {
                 listeners.push(listener);
             }
         },
-        remove: function(topic, listener) {
+        remove: function (topic, listener) {
             let listeners = topics[topic] ?? [];
 
             let pos = listeners.indexOf(listener);
@@ -25,19 +24,19 @@ export const Observer = (function() {
     };
 })();
 
-export const Mediator = (function() {
-    const topics = {};  // Store
+export const Mediator = (function () {
+    const topics = {}; // Store
 
     return {
-        provide: function(topic, provider, force = false) {
+        provide: function (topic, provider, force = false) {
             if (!topics[topic] || force)
                 topics[topic] = provider;
         },
-        consume: function(topic, data) {
+        request: function (topic, data) {
             let provider = topics[topic];
-            return provider? provider(data) : null;
+            return provider ? provider(data) : null;
         },
-        remove: function(topic, provider) {
+        remove: function (topic, provider) {
             if (provider == topics[topic])
                 delete topics[topic];
         },
@@ -48,21 +47,11 @@ export const activateScript = function iterator(parent) {
     if (parent.tagName === "TEMPLATE") {
         activateTemplateScripts(parent.content);
     } else
-    for (let child of parent.children) {
-        if (child.tagName === "SCRIPT") {
-            new Function(child.textContent).call(parent);
-        }
-        else iterator(child);
-    };
-};
-
-const refreshScript = function(parent, child) {
-    let script = document.createElement('script');
-    for (let attr of child.attributes) {
-        script.setAttribute(attr.name, attr.value)
-    };
-    script.textContent = child.textContent;
-    parent.replaceChild(script, child);
+        for (let child of parent.children) {
+            if (child.tagName === "SCRIPT") {
+                new Function(child.textContent).call(parent);
+            } else iterator(child);
+        };
 };
 
 const activateTemplateScripts = function iterator(parent) {
@@ -77,15 +66,24 @@ const activateTemplateScripts = function iterator(parent) {
     };
 };
 
-export const toIconHtml = function (data) {
+const refreshScript = function (parent, child) {
+    let script = document.createElement('script');
+    for (let attr of child.attributes) {
+        script.setAttribute(attr.name, attr.value)
+    };
+    script.textContent = child.textContent;
+    parent.replaceChild(script, child);
+};
+
+export const toIconHtml = function (data, size = 16) {
     if ("string" === typeof data && data.length > 3) {
-        let type = data.substring(0,3).toUpperCase();
+        let type = data.substring(0, 3).toUpperCase();
         let icon = data.substring(3);
         switch (type) {
             case "SVG": {
-                return `<svg width="16" height="16">${icon}</svg>`;
+                return `<svg width="${size}" height="${size}">${icon}</svg>`;
             }
         }
     }
-    return "icon";
+    return "";
 };

@@ -1,8 +1,8 @@
-import shadowHTML from './menu-list.htm';
-import { WdpDivElement } from '../commons/WdpDivElement';
-import { toIconHtml as icon, Observer, Mediator } from '../commons/utils';
+import shadowHTML from '../view/menu-list.htm';
+import { BaseDivElement } from '../commons/BaseDivElement';
+import { toIconHtml as icon, Observer, Mediator } from '../utils/utils';
 
-export class MenuList extends WdpDivElement {
+export class MenuList extends BaseDivElement {
 	static get observedAttributes() {
 		return ["hidden"];
 	}
@@ -14,7 +14,7 @@ export class MenuList extends WdpDivElement {
     
     constructor() {
         super(shadowHTML);
-        this.#Store = Mediator.consume('Store', 'Menu');
+        this.#Store = Mediator.request('Store', 'Menu');
     }
 
     connectedCallback() {

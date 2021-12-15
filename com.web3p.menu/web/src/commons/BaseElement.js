@@ -1,6 +1,6 @@
-import { activateScript as activate } from './utils';
+import { activateScript as activate } from '../utils/utils.js';
 
-export class WdpElement extends HTMLElement {
+export class BaseElement extends HTMLElement {
 
 	constructor(shadowHTML) {
 		super();
@@ -19,5 +19,9 @@ export class WdpElement extends HTMLElement {
 		if (selector.startsWith('#'))
 			return this.shadowRoot.getElementById(selector.substring(1));
 		return this.shadowRoot.querySelector(selector);
+	}
+
+	_queryShadowAll(selector) {
+		return this.shadowRoot.querySelectorAll(selector);
 	}
 };

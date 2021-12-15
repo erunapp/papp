@@ -1,6 +1,6 @@
-import { activateScript as activate } from './utils';
+import { activateScript as activate } from '../utils/utils.js';
 
-export class WdpDivElement extends HTMLDivElement {
+export class BaseDivElement extends HTMLDivElement {
 
 	constructor(shadowHTML) {
 		super();
@@ -15,13 +15,13 @@ export class WdpDivElement extends HTMLDivElement {
 		}
 	}
 
-	$queryShadow(selector) {
+	_queryShadow(selector) {
 		if (selector.startsWith('#'))
 			return this.shadowRoot.getElementById(selector.substring(1));
 		return this.shadowRoot.querySelector(selector);
 	}
 
-	$queryShadowAll(selector) {
+	_queryShadowAll(selector) {
 		return this.shadowRoot.querySelectorAll(selector);
 	}
 };

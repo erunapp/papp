@@ -1,6 +1,6 @@
 import './commons/init';
-import './commons/page';
-import './commons/breadcrumb';
+import './menu/breadcrumb';
+import './menu/menu-page';
 import './menu/menu-list';
 import './menu/menu-flex';
 import './menu/menu-card';

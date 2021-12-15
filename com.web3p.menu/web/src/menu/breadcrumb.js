@@ -1,8 +1,8 @@
-import shadowHTML from './breadcrumb.htm';
-import { WdpElement } from './WdpElement';
-import { Observer } from './utils';
+import shadowHTML from '../view/breadcrumb.htm';
+import { BaseElement } from '../commons/BaseElement';
+import { Observer } from '../utils/utils';
 
-export class Breadcrumb extends WdpElement {
+export class Breadcrumb extends BaseElement {
 
 	#PathAppend = this.#appendPath.bind(this);
 	#PathReturn = this.#returnPath.bind(this);

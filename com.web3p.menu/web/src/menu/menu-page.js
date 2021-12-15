@@ -1,6 +1,6 @@
-import '../commons/view';
+import './menu-view';
 
-export class Page extends HTMLBodyElement {
+export class MenuPage extends HTMLBodyElement {
     static get disabledFeatures() {
          return ['shadow'];
     }
@@ -13,7 +13,7 @@ export class Page extends HTMLBodyElement {
     }
 
     connectedCallback() {
-        this.#views = this.querySelectorAll("[is='wdp-view']");
+        this.#views = this.querySelectorAll("[is='wdp-menu-view']");
         if (this.#views.length > 1) {
             this.#views.forEach(view => view.children[0].hidden = true);
             this.#views[0].children[0].hidden = false;
@@ -36,4 +36,4 @@ export class Page extends HTMLBodyElement {
     }
 };
 
-customElements.define("wdp-page", Page, {extends:'body'});
+customElements.define("wdp-menu-page", MenuPage, {extends:'body'});

@@ -1,5 +1,5 @@
 
-export class View extends HTMLElement {
+export class MenuView extends HTMLElement {
     static get disabledFeatures() {
          return ['shadow'];
     }
@@ -15,4 +15,4 @@ export class View extends HTMLElement {
     }
 };
 
-customElements.define("wdp-view", View, {extends:'main'});
+customElements.define("wdp-menu-view", MenuView, {extends:'main'});

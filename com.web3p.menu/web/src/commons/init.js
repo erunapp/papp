@@ -1,5 +1,5 @@
-import { Observer, Mediator } from './utils';
-import { Store } from '../menu/menu-data';
+import { Observer, Mediator } from '../utils/utils.js';
+import { Store } from '../data/menu-data.js';
 
 
 let top = (this instanceof Window) ? this.top :
@@ -10,8 +10,8 @@ let top = (this instanceof Window) ? this.top :
 if (top == 0)
     throw new Error('unable to locate window object');
 
-top.wdp = top.wdp || (function () {
-    const load = (host, page) => {
+top.wcp = top.wcp || (function () {
+    const loadPage = (host, page) => {
         if (host.startsWith('https')) {
             let map = {};
     
@@ -24,7 +24,7 @@ top.wdp = top.wdp || (function () {
         }
     };
 
-    const store = name => {
+    const getStore = name => {
         switch (name) {
             case 'Menu': return Store;
         }
@@ -32,12 +32,12 @@ top.wdp = top.wdp || (function () {
     };
 
     return {
-        load: load,
-        store: store, 
+        loadPage: loadPage,
+        getStore: getStore, 
     }
 })();
 
-let load = item => top.wdp.load(item.host, item.page);
-let store = name => top.wdp.store(name);
-Observer.listen('PageRequest', load);
-Mediator.provide('Store', store);
+let loadPage = item => top.wcp.loadPage(item.host, item.page);
+let getStore = name => top.wcp.getStore(name);
+Observer.listen('PageRequest', loadPage);
+Mediator.provide('Store', getStore);

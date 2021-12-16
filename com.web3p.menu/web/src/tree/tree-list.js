@@ -1,4 +1,5 @@
-import { toIconHtml as icon, Observer, Mediator } from '../utils/utils.js';
+import { toIconHtml as icon, Observer } from '../utils/utils.js';
+import { Store } from '../data/menu-data.js';
 import './tree-item.js';
 
 export class TreeList extends HTMLDivElement {
@@ -22,7 +23,7 @@ export class TreeList extends HTMLDivElement {
         this.#items.push(this.querySelector('.item'));
         this.#resize();
 
-        this.#Store = Mediator.request('Store', 'Menu');
+        this.#Store = Store;
         this.#expand(-1, '$', 1);
         this.#listData();
     }

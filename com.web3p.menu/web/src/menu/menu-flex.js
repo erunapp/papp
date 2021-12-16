@@ -1,6 +1,7 @@
 import shadowHTML from '../view/menu-flex.htm';
 import { BaseDivElement } from '../commons/BaseDivElement';
-import { toIconHtml as icon, Observer, Mediator } from '../utils/utils';
+import { toIconHtml as icon, Observer } from '../utils/utils';
+import { Store } from '../data/menu-data.js';
 
 export class MenuFlex extends BaseDivElement {
 	static get observedAttributes() {
@@ -14,7 +15,7 @@ export class MenuFlex extends BaseDivElement {
     
     constructor() {
         super(shadowHTML);
-        this.#Store = Mediator.request('Store', 'Menu');
+        this.#Store = Store;
     }
 
     connectedCallback() {

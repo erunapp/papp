@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>File Explorer</title>
+
+  <style>
+    :root {
+      --fore-color: #fff;
+      --back-color: #B55A30;
+    }
+
+    .path {
+      padding: 4px;
+      height: 20px;
+      color: var(--fore-color);
+      background-color: var(--back-color);
+    }
+  </style>
+  <script type="module" src="js/file.js"></script>
+</head>
+
+<body>
+  <nav is="wdp-path-walk" class="path">
+  </nav>
+
+  <div is="wdp-file-list">
+  </div>
+</body>
+
+</html>

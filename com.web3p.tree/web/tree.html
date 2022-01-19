@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tree</title>
+
+  <style>
+    :root {
+      --fore-color: #fff;
+      --back-color: #B55A30;
+    }
+
+    body {
+      margin: 0;
+      padding: 3px;
+      background-color: #E0B589;
+    }
+
+    .root {
+      position: relative;
+      margin-bottom: 3px;
+      height: 24px;
+      color: var(--fore-color);
+      background-color: var(--back-color);
+    }
+
+    .scroll {
+      position: relative;
+      overflow: auto;
+    }
+
+    .detail {
+      position: relative;
+      color: #000;
+      background-color: #EFE1CE;
+    }
+
+    .item {
+      position: absolute;
+      display: flex;
+      height: 24px;
+      width: calc(100vw - 6px);
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    .icon::before {
+      content: "\2B9E";
+    }
+
+    .icon.expanded::before {
+      content: "\2B9F";
+    }
+
+    .icon span:nth-child(1) {
+      width: 1.6em;
+      height: 1em;
+      text-align: center;
+    }
+
+    .icon span:nth-child(2) {
+      width: auto;
+      text-align: left;
+    }
+
+    .indent {
+      height: 100%;
+      pointer-events: none
+    }
+
+    .guide {
+      display: inline-block;
+      box-sizing: border-box;
+      height: 100%;
+      border-left: 1px solid transparent;
+      transition: border-color .1s linear
+    }
+
+    .clip {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+  </style>
+  <script type="module" src="js/tree.js"></script>
+</head>
+
+<body>
+  <main is="wdp-tree-view">
+    <section class="root">
+      <div class="item">
+        <div class="icon expanded">
+          <span style="width: 0.5em;"></span><span>Menu</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll">
+      <div is="wdp-tree-list" class="detail">
+        <div is="wdp-tree-item" class="item">
+          <div class="indent">
+            <div class="guide"></div>
+          </div>
+          <div class="icon">
+            <span><svg width="16" height="16"><use href="#${icon}"/></svg></span><span class="clip">${name}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <svg style="display: none">
+    <symbol id="opened" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+    </symbol>
+    <symbol id="closed" viewBox="0 0 16 16">
+      <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+    </symbol>
+  </svg>
+</body>
+
+</html>

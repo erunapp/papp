@@ -1,8 +1,8 @@
 {
-  "name": "wc-w3",
+  "name": "webcode",
   "version": "0.1.0",
   "description": "web3p for Web Components",
-  "main": "web/index.html",
+  "main": "index.html",
   "scripts": {
     "build": "webpack --color --node-env development",
     "serve": "webpack serve"
@@ -10,8 +10,7 @@
   "devDependencies": {
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.6.0",
-    "html-loader": "^3.0.1"
+    "webpack-dev-server": "^4.7.1"
   },
   "license": "MIT"
 }

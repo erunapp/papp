@@ -2,7 +2,8 @@
   "app_id": "com.web3p.clock",
   "app_name": "Clock",
   "app_icon": "https://erunapp.github.io/papp/favicon.ico",
-  "host_root": "https://erunapp.github.io/papp/com.web3p.clock",
+  
+  "home_url": "https://erunapp.github.io/papp/com.web3p.clock",
   "start_html": "/web/main.html",
 
   "can_local": {

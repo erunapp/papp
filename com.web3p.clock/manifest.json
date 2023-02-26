@@ -4,16 +4,18 @@
   "app_icon": "https://erunapp.github.io/papp/favicon.ico",
   
   "home_url": "https://erunapp.github.io/papp/com.web3p.clock",
-  "start_html": "/web/main.html",
+  "web_root": "/web",
+  "jar_root": "/jar",
+  
+  "start_html": "/main.html",
 
   "can_local": {
-    "web_jar_url": "/jar/web.jar",
-    "local_html": "/main.html"
+    "web_jar_url": "/web.jar",
   },
   "use_java": {
-    "dex_jar_url": "/jar/dex.jar",
+    "dex_jar_url": "/dex.jar",
     "start_java": "com.web3p.clock.Main",
     "use_cpp": true
   },
-  "src_jar_url": "/jar/src.jar"
+  "src_jar_url": "/src.jar"
 }

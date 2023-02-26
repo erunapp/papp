@@ -10,7 +10,7 @@
   "start_html": "/main.html",
 
   "can_local": {
-    "web_jar_url": "/web.jar",
+    "web_jar_url": "/web.jar"
   },
   "use_java": {
     "dex_jar_url": "/dex.jar",

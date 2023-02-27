@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>앨범</title>
+
+  <style>
+    :root {
+      --fore-color: #fff;
+      --back-color: #B55A30;
+      --body-color: #E0B589;
+      --item-color: #8cacea;
+      --font-white: #fff;
+      --font-block: #000;
+    }
+
+    *,
+    *:before,
+    *:after {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      line-height: 1.5;
+      font-family: Georgia, "맑은 고딕", sans-serif;
+      background-color: var(--body-color);
+    }
+
+    header {
+      display: flex;
+      padding-top: 2px;
+      position: sticky;
+      height: 2em;
+      top: 0px;
+      z-index: 1;
+      background-color: var(--body-color);
+    }
+
+    .picker {
+      flex: 1 0 auto;
+      padding: 3px;
+    }
+
+    .filter {
+      flex: 0 1 auto;
+      padding: 3px;
+    }
+  </style>
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+  <header>
+    <section is="wdp-picker" class="picker">
+    </section>
+    <section is="wdp-filter" class="filter">
+    </section>
+  </header>
+  <main>
+    <section is="wdp-album" class="album">
+    </section>
+  </main>
+</body>
+</html>

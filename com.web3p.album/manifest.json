@@ -1,0 +1,16 @@
+{
+  "app_id": "com.web3p.album",
+  "app_name": "Album",
+  "app_icon": "album.ico",
+  
+  "home_url": "https://erunapp.github.io/papp/com.web3p.album",
+  "web_root": "/web",
+  "jar_root": "/jar",
+  
+  "start_html": "/main.html",
+
+  "can_local": {
+    "web_jar_url": "/web.jar"
+  },
+  "src_jar_url": "/src.jar"
+}

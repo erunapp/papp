@@ -6,6 +6,11 @@
   "home_url": "http://14.53.39.137:8080/papp/com.web3p.album",
   "web_root": "/web",
   "jar_root": "/jar",
+  "res_root": "/res",
+  
+  "can_local": {
+	"web_jar_url": "/web.jar"
+  },
   
   "start_html": "/main.html",
   "src_jar_url": "/src.jar"

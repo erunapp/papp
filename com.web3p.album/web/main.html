@@ -20,6 +20,7 @@
     *:before,
     *:after {
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
@@ -53,15 +54,29 @@
 </head>
 
 <body>
-  <header>
-    <section is="wdp-picker" class="picker">
+  <article>
+    <header>
+      <section is="wdp-picker" class="picker">
+      </section>
+      <section is="wdp-filter" class="filter">
+      </section>
+    </header>
+    <div>
+      <section is="wdp-album" class="album">
+      </section>
+    </div>
+  </article>
+  <article>
+    <section class="viewer" height="0">
+      <img src="#" alt="#" loading="lazy">
     </section>
-    <section is="wdp-filter" class="filter">
+  </article>
+  <article>
+    <section class="player">
+      <video id="video" src="#" height="0" controls autoplay>
+        video 요소를 지원하지 않는 브라우저입니다.
+      </video>
     </section>
-  </header>
-  <main>
-    <section is="wdp-album" class="album">
-    </section>
-  </main>
+  </article>
 </body>
 </html>

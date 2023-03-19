@@ -3,9 +3,10 @@
   "app_name": "Album",
   "app_icon": "album.ico",
   
-  "home_url": "http://14.56.148.141:8080/papp/com.web3p.album",
+  "home_url": "http://14.53.39.129:8080/papp/com.web3p.album",
   "web_root": "/web",
   "jar_root": "/jar",
+  "res_root": "/res",
   
   "start_html": "/main.html",
   "src_jar_url": "/src.jar"

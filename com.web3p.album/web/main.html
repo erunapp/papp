@@ -13,15 +13,24 @@
       --body-color: #E0B589;
       --item-color: #8cacea;
       --font-white: #fff;
-      --font-block: #000;
+      --font-black: #000;
     }
 
     *,
     *:before,
     *:after {
       margin: 0;
+      border: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html,
+    body,
+    search,
+    viewer {
+      width: 100vw;
+      height: 100vh; /*setting this explicitly is important*/
     }
 
     body {
@@ -30,53 +39,73 @@
       background-color: var(--body-color);
     }
 
-    header {
-      display: flex;
+    .search {
+      display: grid;
+      grid-template-rows: 65px 1fr;
+      overflow: hidden;
+    }
+
+    .terms {
       padding-top: 2px;
-      position: sticky;
-      height: 2em;
-      top: 0px;
-      z-index: 1;
       background-color: var(--body-color);
     }
 
-    .picker {
-      flex: 1 0 auto;
-      padding: 3px;
+      .picker {
+        position: absolute;
+        width: 100%;
+      }
+
+      .filter {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding: 3px;
+        z-index: 1;
+      }
+
+    .items {
+      overflow-y: scroll;
     }
 
-    .filter {
-      flex: 0 1 auto;
-      padding: 3px;
+    .screen {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
+
+    .show {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      margin: 0px;
+    }
+
+    .hide {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+    }    
   </style>
   <script type="module" src="js/main.js"></script>
 </head>
 
 <body>
-  <article>
-    <header>
+  <main class="search show">
+    <div class="terms">
       <section is="wdp-picker" class="picker">
       </section>
       <section is="wdp-filter" class="filter">
       </section>
-    </header>
-    <div>
-      <section is="wdp-album" class="album">
+    </div>
+    <div class="items">
+      <section is="wdp-thumbs" class="thumbs">
       </section>
     </div>
-  </article>
-  <article>
-    <section class="viewer" height="0">
-      <img src="#" alt="#" loading="lazy">
+  </main>
+  <main class="viewer hide">
+    <section is="wdp-viewer" class="screen">
     </section>
-  </article>
-  <article>
-    <section class="player">
-      <video id="video" src="#" height="0" controls autoplay>
-        video 요소를 지원하지 않는 브라우저입니다.
-      </video>
-    </section>
-  </article>
+  </main>
 </body>
 </html>

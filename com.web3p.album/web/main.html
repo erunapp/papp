@@ -46,13 +46,14 @@
     }
 
     .terms {
-      padding-top: 2px;
+      position: relative;
       background-color: var(--body-color);
     }
 
       .picker {
         position: absolute;
         width: 100%;
+        height: 97%;
       }
 
       .filter {
@@ -63,7 +64,7 @@
         z-index: 1;
       }
 
-    .items {
+    .sheet {
       overflow-y: scroll;
     }
 
@@ -95,10 +96,10 @@
     <div class="terms">
       <section is="wdp-picker" class="picker">
       </section>
-      <section is="wdp-filter" class="filter">
+      <section is="wdp-filter" class="filter hide">
       </section>
     </div>
-    <div class="items">
+    <div class="sheet">
       <section is="wdp-thumbs" class="thumbs">
       </section>
     </div>

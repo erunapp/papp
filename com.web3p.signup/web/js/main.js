@@ -103,33 +103,34 @@ var code = `<!DOCTYPE html>
 
         <button id="signup">Sign Up</button>
     </div>
+    
+    ${"<" + "script"}>
+        this.host.\$htm = (function (self) {
+            let signup = self.getElementById('signup');
+
+            signup.addEventListener("click", e => {
+                let host = self.getElementById('hostID').value;
+                let cell = self.getElementById('cellNo').value;
+
+                self.host.submit(host, cell);
+            });
+
+            return {
+                setValue: function(id, val) {
+                    let obj = self.getElementById(id);
+                    obj.value = val;
+                    obj.placeholder = null;
+                },
+                setPlace: function(id, msg) {
+                    let obj = self.getElementById(id);
+                    obj.value = "";
+                    obj.placeholder = msg;
+                }
+            };
+        })(this);
+    ${"<" + "/script"}>
 </body>
 
-${"<" + "script"}>
-    this.host.\$htm = (function (self) {
-        let signup = self.getElementById('signup');
-
-        signup.addEventListener("click", e => {
-            let host = self.getElementById('hostID').value;
-            let cell = self.getElementById('cellNo').value;
-
-            self.host.submit(host, cell);
-        });
-
-        return {
-            setValue: function(id, val) {
-                let obj = self.getElementById(id);
-                obj.value = val;
-                obj.placeholder = null;
-            },
-            setPlace: function(id, msg) {
-                let obj = self.getElementById(id);
-                obj.value = "";
-                obj.placeholder = msg;
-            }
-        };
-    })(this);
-${"<" + "/script"}>
 </html>`;
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);

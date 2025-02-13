@@ -30,57 +30,57 @@ var code = `<!DOCTYPE html>
             border-radius: 6px;
             padding: 41px 30px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
 
-        .signup_form form {
-            margin-top: 24px;
-            margin-bottom: 20px;
-        }
+            form {
+                margin-top: 24px;
+                margin-bottom: 20px;
 
-        form .input_box {
-            position: relative;
-        }
+                .input_box {
+                    position: relative;
 
-        form .input_box label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
+                    label {
+                        display: block;
+                        font-weight: 500;
+                        margin-bottom: 8px;
+                    }
 
-        form .input_box input {
-            width: -webkit-fill-available;
-            height: 56px;
-            border: 1px solid #DADAF2;
-            border-radius: 5px;
-            outline: none;
-            background: #F8F8FB;
-            font-size: 17px;
-            padding: 0 20px;
-            margin-bottom: 25px;
-            transition: 0.2s ease;
-        }
+                    input {
+                        width: -webkit-fill-available;
+                        height: 56px;
+                        border: 1px solid #DADAF2;
+                        border-radius: 5px;
+                        outline: none;
+                        background: #F8F8FB;
+                        font-size: 17px;
+                        padding: 0 20px;
+                        margin-bottom: 25px;
+                        transition: 0.2s ease;
 
-        form .input_box input:focus {
-            border-color: #626cd6;
-        }
+                        &:focus {
+                            border-color: #626cd6;
+                        }
+                    }
+                }
+            }
 
-        .signup_form button {
-            width: 100%;
-            height: 56px;
-            border-radius: 5px;
-            border: none;
-            outline: none;
-            background: #626CD6;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 500;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
+            button {
+                width: 100%;
+                height: 56px;
+                border-radius: 5px;
+                border: none;
+                outline: none;
+                background: #626CD6;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 500;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: 0.3s ease;
+            }
 
-        .signup_form button:hover {
-            background: #4954d0;
+            button:hover {
+                background: #4954d0;
+            }
         }
     </style>
 </head>
@@ -103,34 +103,33 @@ var code = `<!DOCTYPE html>
 
         <button id="signup">Sign Up</button>
     </div>
-    
-    ${"<" + "script"}>
-        this.host.\$htm = (function (self) {
-            let signup = self.getElementById('signup');
-
-            signup.addEventListener("click", e => {
-                let host = self.getElementById('hostID').value;
-                let cell = self.getElementById('cellNo').value;
-
-                self.host.submit(host, cell);
-            });
-
-            return {
-                setValue: function(id, val) {
-                    let obj = self.getElementById(id);
-                    obj.value = val;
-                    obj.placeholder = null;
-                },
-                setPlace: function(id, msg) {
-                    let obj = self.getElementById(id);
-                    obj.value = "";
-                    obj.placeholder = msg;
-                }
-            };
-        })(this);
-    ${"<" + "/script"}>
 </body>
+    
+${"<" + "script"}>
+    this.host.\$htm = (function (self) {
+        let signup = self.getElementById('signup');
 
+        signup.addEventListener("click", e => {
+            let host = self.getElementById('hostID').value;
+            let cell = self.getElementById('cellNo').value;
+
+            self.host.submit(host, cell);
+        });
+
+        return {
+            setValue: function(id, val) {
+                let obj = self.getElementById(id);
+                obj.value = val;
+                obj.placeholder = null;
+            },
+            setPlace: function(id, msg) {
+                let obj = self.getElementById(id);
+                obj.value = "";
+                obj.placeholder = msg;
+            }
+        };
+    })(this);
+${"<" + "/script"}>
 </html>`;
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);

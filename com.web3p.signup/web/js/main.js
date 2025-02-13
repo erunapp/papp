@@ -14,9 +14,9 @@
 /*!************************!*\
   !*** ./htm/signup.htm ***!
   \************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((module) => {
 
-eval("module.exports = __webpack_require__.p + \"./htm/signup.htm\";\n\n//# sourceURL=webpack:///./htm/signup.htm?");
+eval("module.exports = \"<!DOCTYPE html>\\r\\n<html lang=\\\"ko\\\">\\r\\n<head>\\r\\n    <meta charset=\\\"utf-8\\\">\\r\\n    <style>\\r\\n        h3 {\\r\\n            font-size: 20px;\\r\\n            text-align: center;\\r\\n        }\\r\\n\\r\\n        .signup_form {\\r\\n            width: 84vw;\\r\\n            max-width: 435px;\\r\\n            background: #fff;\\r\\n            border-radius: 6px;\\r\\n            padding: 41px 30px;\\r\\n            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);\\r\\n        }\\r\\n\\r\\n        .signup_form form {\\r\\n            margin-top: 24px;\\r\\n            margin-bottom: 20px;\\r\\n        }\\r\\n\\r\\n        form .input_box {\\r\\n            position: relative;\\r\\n        }\\r\\n\\r\\n        form .input_box label {\\r\\n            display: block;\\r\\n            font-weight: 500;\\r\\n            margin-bottom: 8px;\\r\\n        }\\r\\n\\r\\n        form .input_box input {\\r\\n            width: -webkit-fill-available;\\r\\n            height: 56px;\\r\\n            border: 1px solid #DADAF2;\\r\\n            border-radius: 5px;\\r\\n            outline: none;\\r\\n            background: #F8F8FB;\\r\\n            font-size: 17px;\\r\\n            padding: 0 20px;\\r\\n            margin-bottom: 25px;\\r\\n            transition: 0.2s ease;\\r\\n        }\\r\\n\\r\\n        form .input_box input:focus {\\r\\n            border-color: #626cd6;\\r\\n        }\\r\\n\\r\\n        .signup_form button {\\r\\n            width: 100%;\\r\\n            height: 56px;\\r\\n            border-radius: 5px;\\r\\n            border: none;\\r\\n            outline: none;\\r\\n            background: #626CD6;\\r\\n            color: #fff;\\r\\n            font-size: 18px;\\r\\n            font-weight: 500;\\r\\n            text-transform: uppercase;\\r\\n            cursor: pointer;\\r\\n            transition: 0.3s ease;\\r\\n        }\\r\\n\\r\\n        .signup_form button:hover {\\r\\n            background: #4954d0;\\r\\n        }\\r\\n    </style>\\r\\n</head>\\r\\n\\r\\n<body>\\r\\n    <div class=\\\"signup_form\\\">\\r\\n        <h3>회 원 확 인</h3>\\r\\n\\r\\n        <form action=\\\"#\\\">\\r\\n            <div class=\\\"input_box\\\">\\r\\n                <label for=\\\"hostID\\\">앨 범 이 름</label>\\r\\n                <input type=\\\"text\\\" id=\\\"hostID\\\" name=\\\"hostID\\\" readonly />\\r\\n            </div>\\r\\n\\r\\n            <div class=\\\"input_box\\\">\\r\\n                <label for=\\\"cellNo\\\">회 원 번 호</label>\\r\\n                <input type=\\\"text\\\" id=\\\"cellNo\\\" name=\\\"cellNo\\\" />\\r\\n            </div>\\r\\n        </form>\\r\\n\\r\\n        <button id=\\\"signup\\\">Sign Up</button>\\r\\n    </div>\\r\\n</body>\\r\\n\\r\\n<script>\\r\\n    this.host.$htm = (function (self) {\\r\\n        let signup = self.getElementById('signup');\\r\\n\\r\\n        signup.addEventListener(\\\"click\\\", e => {\\r\\n            let host = self.getElementById('hostID').value;\\r\\n            let cell = self.getElementById('cellNo').value;\\r\\n\\r\\n            self.host.submit(host, cell);\\r\\n        });\\r\\n\\r\\n        return {\\r\\n            setValue: function(id, val) {\\r\\n                let obj = self.getElementById(id);\\r\\n                obj.value = val;\\r\\n                obj.placeholder = null;\\r\\n            },\\r\\n            setPlace: function(id, msg) {\\r\\n                let obj = self.getElementById(id);\\r\\n                obj.value = \\\"\\\";\\r\\n                obj.placeholder = msg;\\r\\n            }\\r\\n        };\\r\\n    })(this);\\r\\n</script>\\r\\n</html>\";\n\n//# sourceURL=webpack:///./htm/signup.htm?");
 
 /***/ }),
 
@@ -89,18 +89,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -115,29 +103,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
